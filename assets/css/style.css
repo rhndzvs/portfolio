@@ -234,15 +234,17 @@ span {
     color: var(--main-color);
 }
 
-.about {
+.about .about-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4rem;
+    margin-top: 8rem;
 }
 
 .about-img img {
-    width: 40vw;
+    width: 25vw;
+    border-radius: 50%;
 }
 
 .heading {
