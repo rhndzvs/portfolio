@@ -635,3 +635,17 @@ span {
     color: var(--main-color);
     box-shadow: none;
 }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 7%;
+    background: var(--main-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
