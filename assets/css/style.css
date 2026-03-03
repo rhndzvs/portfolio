@@ -20,6 +20,15 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+.dark-mode {
+    --bg-color: #0b061f;
+    --second-bg-color: #e4e4e4; /* 2a2a2a */
+    --text-color: #fdfdfd;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.7);
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
