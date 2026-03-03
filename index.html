@@ -4,49 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Rhundei Zen Ballesteros - Aspiring Software Developer, Cybersecurity Enthusiast, AI Enthusiast">
+    <meta name="author" content="Rhundei Zen Ballesteros">
+
     <title>Rhundei Zen Ballesteros | Portfolio</title>
 
-    <!-- box icons -->
-    <!-- Basic Icons -->
+    <!-- Boxicons: Basic Icons -->
     <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
-    <!-- Filled Icons -->
+    <!-- Boxicons: Filled Icons -->
     <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
-    <!-- Brand Icons -->
+    <!-- Boxicons: Brand Icons -->
     <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
 
-    <!-- custom css -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- header design -->
+    <!-- Header -->
     <header class="header">
         <a href="#" class="logo">rhndzvs.</a>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="#home" class="active" aria-label="Home">Home</a>
+            <a href="#about" aria-label="About">About</a>
+            <a href="#skills" aria-label="Skills">Skills</a>
+            <a href="#projects" aria-label="Projects">Projects</a>
+            <a href="#contact" aria-label="Contact">Contact</a>
         </nav>
 
-        <div class="bx bx-moon" id="darkMode-icon"></div>
+        <div class="bx bx-moon" id="darkMode-icon" aria-label="Toggle dark mode"></div>
 
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
-    <!-- home section design -->
+    <!-- Home Section -->
     <section class="home" id="home">
         <div class="home-content">
             <h3>Hello, I am</h3>
             <h1>Rhundei Zen</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem adipisci eaque veniam dolorum praesentium omnis veritatis quod itaque.</p>
 
-            <div class="social-media">
-                <a href="#"><i class='bxl bx-facebook'></i></a>
-                <a href="#"><i class='bxl bx-instagram-alt'></i></a>
-                <a href="#"><i class='bxl bx-linkedin'></i></a>
-                <a href="#"><i class='bxl bx-github'></i></a>
+            <div class="social-media" aria-label="Social media links">
+                <a href="#" aria-label="Facebook"><i class='bxl bx-facebook'></i></a>
+                <a href="#" aria-label="Instagram"><i class='bxl bx-instagram-alt'></i></a>
+                <a href="#" aria-label="LinkedIn"><i class='bxl bx-linkedin'></i></a>
+                <a href="#" aria-label="GitHub"><i class='bxl bx-github'></i></a>
             </div>
         </div>
 
@@ -83,7 +85,7 @@
         </div>
     </section>
 
-    <!-- about section design -->
+    <!-- About Section -->
     <section class="about" id="about">
         <h2 class="heading">About <span>Me</span></h2>
 
@@ -99,11 +101,11 @@
         </div>
     </section>
 
+    <!-- Education Section -->
     <section class="education" id="education">
         <h2 class="heading">Education and <span>Achievements</span></h2>
         
         <div class="timeline-items">
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2023 - Present</div>
@@ -124,7 +126,7 @@
         </div>
     </section>
 
-    <!-- skills section design -->
+    <!-- Skills Section -->
     <section class="skills" id="skills">
         <h2 class="heading">Technology <span>Stack</span></h2>
 
@@ -257,7 +259,7 @@
         </div>
     </section>
 
-    <!-- projects section design -->
+    <!-- Projects Section -->
     <section class="projects" id="projects">
         <h2 class="heading">Featured <span>Projects</span></h2>
 
@@ -285,7 +287,7 @@
         </div>
     </section>
 
-    <!-- contact section design -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
@@ -310,12 +312,12 @@
             </div>
 
             <div class="contact-box">
-                <form action="">
+                <form action="" method="POST">
                     <div class="field-box">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="text" placeholder="Email Subject" required>
-                        <textarea name="" id=""placeholder="Your Message" required></textarea>
+                        <input type="text" name="full_name" placeholder="Full Name" required>
+                        <input type="email" name="email_address" placeholder="Email Address" required>
+                        <input type="text" name="email_subject" placeholder="Email Subject" required>
+                        <textarea name="message" id="" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
@@ -323,17 +325,17 @@
         </div>
     </section>
 
-    <!-- footer design -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-text">
             <p>&copy; 2026 Rhundei Zen Ballesteros. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- scroll reveal -->
+    <!-- Scroll Reveal Animation Library -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- custom js -->
+    <!-- Main JavaScript -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
