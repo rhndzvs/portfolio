@@ -170,7 +170,6 @@ section {
     transform: translateY(-50%);
     width: 768px;
     height: 768px;
-    overflow: hidden;
     pointer-events: none;
 }
 
@@ -200,7 +199,7 @@ section {
 }
 
 .home .profession-box .profession:nth-child(1) {
-    margin-right: 15px;
+    margin-left: -32px;
 }
 
 .home .profession-box .profession:nth-child(2),
@@ -214,7 +213,7 @@ section {
 
 .home .profession h3 {
     font-size: 3.2rem;
-    line-height: 1;
+    line-height: 1.2;
     font-weight: 600;
 }
 
@@ -241,7 +240,7 @@ section {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 100%;
+    width: 80%;
     pointer-events: none;
 }
 
