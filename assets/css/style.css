@@ -168,8 +168,8 @@ section {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 768px;
-    height: 768px;
+    width: 100vh;
+    height: 100vh;
     pointer-events: none;
 }
 
@@ -177,8 +177,8 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 768px;
-    height: 768px;
+    width: 100vh;
+    height: 100vh;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -193,18 +193,18 @@ section {
     flex-direction: column;
     color: var(--main-color);
     transform: rotate(calc(360deg / 4 * var(--i)));
-    transform-origin: 384px;
+    transform-origin: 50vh;
     background: var(--bg-color);
-    padding: 13px 0;
+    padding: 1.693vh 0;
 }
 
 .home .profession-box .profession:nth-child(1) {
-    margin-left: -32px;
+    margin-left: -4.167vh;
 }
 
 .home .profession-box .profession:nth-child(2),
 .home .profession-box .profession:nth-child(4) {
-    padding-bottom: 20px;
+    padding-bottom: 2.604vh;
 }
 
 .home .profession i {
@@ -218,8 +218,8 @@ section {
 }
 
 .home .profession-box .circle {
-    width: 560px;
-    height: 560px;
+    width: 72.917vh;
+    height: 72.917vh;
     border: 3px solid var(--main-color);
     border-radius: 50%;
 }
@@ -230,10 +230,10 @@ section {
     right: 0;
     width: 0;
     height: 0;
-    border-top: 384px solid var(--main-color);
-    border-right: 384px solid var(--main-color);
-    border-bottom: 384px solid var(--main-color);
-    border-left: 384px solid transparent;
+    border-top: 50vh solid var(--main-color);
+    border-right: 60vh solid var(--main-color);
+    border-bottom: 50vh solid var(--main-color);
+    border-left: 50vh solid transparent;
 }
 
 .home-img img {
@@ -693,19 +693,6 @@ span {
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
-    }
-
-    .home .profession-container {
-        height: 85.8rem;
-    }
-
-    .home .profession-container .profession-box {
-        right: -12rem;
-        height: 85.8rem;
-    }
-
-    .home .profession-container .overlay {
-        right: -9rem;
     }
 }
 
