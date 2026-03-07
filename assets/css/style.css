@@ -308,12 +308,12 @@ span {
 }
 
 .timeline-items::before {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    background-color: var(--main-color);
-    left: calc(50% - 1px);
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  left: 0;
 }
 
 .timeline-item {
@@ -326,25 +326,23 @@ span {
     margin-bottom: 0;
 }
 
-.timeline-item:nth-child(odd) {
-    padding-right: calc(50% + 30px);
-    text-align: right;
+.timeline-item {
+padding-left: 50px;
+text-align: left;
 }
 
-.timeline-item:nth-child(even) {
-    padding-left: calc(50% + 30px);
-}
+
 
 .timeline-dot {
-    height: 21px;
-    width: 21px;
-    background-color: var(--main-color);
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color);
-    position: absolute;
-    left: calc(50% - 8px);
-    border-radius: 50%;
-    top: 10px;
+  height: 21px;
+  width: 21px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color),
+  0 0 50px var(--main-color);
+  position: absolute;
+  left: -8px;
+  border-radius: 50%;
+  top: 10px;
 }
 
 .timeline-date {
@@ -378,8 +376,7 @@ span {
 
 .timeline-content p {
     color: var(--text-color);
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 1.6rem;
     line-height: 22px;
 }
 
