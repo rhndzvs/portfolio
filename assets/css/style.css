@@ -305,15 +305,16 @@ span {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    justify-content: center;
 }
 
 .timeline-items::before {
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 100%;
-  background-color: var(--main-color);
-  left: 0;
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: 250px;
 }
 
 .timeline-item {
@@ -327,22 +328,23 @@ span {
 }
 
 .timeline-item {
-padding-left: 50px;
-text-align: left;
+    padding-left: 50px;
+    text-align: left;
+    max-width: 700px;
 }
 
 
 
 .timeline-dot {
-  height: 21px;
-  width: 21px;
-  background-color: var(--main-color);
-  box-shadow: 0 0 25px var(--main-color),
-  0 0 50px var(--main-color);
-  position: absolute;
-  left: -8px;
-  border-radius: 50%;
-  top: 10px;
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color);
+    position: absolute;
+    left: -8px;
+    border-radius: 50%;
+    top: 10px;
 }
 
 .timeline-date {
