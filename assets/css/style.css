@@ -369,17 +369,41 @@ span {
     box-shadow: 0 0 25px var(--main-color);
 }
 
-.timeline-content h3 {
-    font-size: 20px;
+.timeline-content .school-name {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.timeline-content .course-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 0.2rem solid var(--main-color);
+}
+
+.timeline-content .course-info .degree {
+    font-size: 2rem;
     color: var(--text-color);
-    margin: 0 0 10px;
+    margin: 0 0 1rem;
+    font-weight: 600;
+}
+
+.timeline-content .course-info .specialization {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0 0 0.8rem;
     font-weight: 500;
 }
 
-.timeline-content p {
+.timeline-content .course-info .focus-area {
     color: var(--text-color);
-    font-size: 1.6rem;
-    line-height: 22px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
 }
 
 .skills h2 {
