@@ -414,6 +414,8 @@ span {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .skills-box p {
