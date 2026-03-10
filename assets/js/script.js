@@ -106,12 +106,24 @@ skillsBtns.forEach((btn, idx) => {
 
 /*========== skills section initial animation on scroll ==========*/
 const skillsSection = document.querySelector('#skills');
+const skillsCategoryBox = skillsSection.querySelector('.skills-box.category');
 const skillsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Animate category box (paragraph first, then buttons)
+            if (skillsCategoryBox) {
+                skillsCategoryBox.classList.add('animate-in');
+            }
+            
+            // Animate skills cards simultaneously
             const activeDetail = skillsSection.querySelector('.skills-detail.active');
             if (activeDetail) {
                 animateSkillCards(activeDetail);
+            }
+        } else {
+            // Remove animate-in class when leaving section so it can re-animate on return
+            if (skillsCategoryBox) {
+                skillsCategoryBox.classList.remove('animate-in');
             }
         }
     });

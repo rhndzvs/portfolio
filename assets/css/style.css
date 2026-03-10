@@ -540,6 +540,42 @@ span {
     animation-delay: var(--stagger-delay, 0s);
 }
 
+/*========== skills category box animation ==========*/
+@keyframes categoryElementIn {
+    from {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-box.category.animate-in .desc {
+    animation: categoryElementIn 0.6s ease both;
+}
+
+.skills-box.category.animate-in .skills-btn {
+    animation: categoryElementIn 0.6s ease both;
+}
+
+.skills-box.category.animate-in .skills-btn:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skills-box.category.animate-in .skills-btn:nth-child(3) {
+    animation-delay: 0.35s;
+}
+
+.skills-box.category.animate-in .skills-btn:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+.skills-box.category.animate-in .skills-btn:nth-child(5) {
+    animation-delay: 0.65s;
+}
+
 .projects h2 {
     margin-bottom: 5rem;
 }
