@@ -290,11 +290,6 @@ span {
     max-width: 65ch;
 }
 
-.education {
-    padding: 8rem 7% 4rem;
-    background: var(--bg-color);
-}
-
 .education h2 {
     margin-bottom: 5rem;
 }
