@@ -148,6 +148,6 @@ ScrollReveal().reveal('.timeline-item:nth-child(1)', {
 });
 ScrollReveal().reveal('.timeline-item:nth-child(2)', {
     origin: 'bottom',
-    delay: 900,
+    delay: 500,
     distance: '50px'
 });
