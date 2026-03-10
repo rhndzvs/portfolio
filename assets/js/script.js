@@ -1,150 +1,170 @@
-/*========== menu icon navbar ==========*/
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+'use strict';
 
-menuIcon.onclick = () => {
+/* 1. NAVBAR */
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+const header = document.querySelector('.header');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
+
+/** Toggle mobile menu open / closed. */
+menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
-};
+});
 
-/*========== scroll sections active link ==========*/
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+/** On scroll: highlight active nav link, stick header, close mobile menu. */
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+    // Sticky header
+    header.classList.toggle('sticky', scrollY > 100);
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        };
+    // Active nav link based on current section
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const matchingLink = document.querySelector(`header nav a[href*="${sectionId}"]`);
+            if (matchingLink) matchingLink.classList.add('active');
+        }
     });
 
-/*========== sticky navbar ==========*/
-let header = document.querySelector('.header');
+    // Auto-close mobile menu on scroll
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+});
 
-header.classList.toggle('sticky', window.scrollY > 100);
+/* 2. DARK / LIGHT MODE */
 
-/*========== remove menu icon navbar when click navbar link (scroll) ==========*/
-menuIcon.classList.remove('bx-x');
-navbar.classList.remove('active');
-};
+const darkModeIcon = document.querySelector('#darkMode-icon');
 
-/*========== skills diagonal stagger animation ==========*/
+darkModeIcon.addEventListener('click', () => {
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode');
+});
+
+/* 3. SKILLS — Tab Switching + Diagonal Stagger Animation */
+
+const skillsSection = document.querySelector('#skills');
+const skillsBtns = document.querySelectorAll('.skills-btn');
+const skillsDetails = document.querySelectorAll('.skills-detail');
+const skillsCategoryBox = skillsSection.querySelector('.skills-box.category');
+
+/** Tracks per-item AbortControllers so animations can be cancelled mid-flight. */
 const skillsAbortControllers = new WeakMap();
 
+/**
+ * Counts how many skill cards share the same top position (= number of columns).
+ * @param {Element} listEl - The .skills-list container element.
+ * @returns {number}
+ */
 function getSkillsColumns(listEl) {
     const items = listEl.querySelectorAll('.skills-item');
     if (items.length < 2) return 1;
+
     const firstTop = Math.round(items[0].getBoundingClientRect().top);
     let cols = 0;
-    for (let i = 0; i < items.length; i++) {
-        if (Math.round(items[i].getBoundingClientRect().top) === firstTop) {
+
+    for (const item of items) {
+        if (Math.round(item.getBoundingClientRect().top) === firstTop) {
             cols++;
         } else {
             break;
         }
     }
+
     return cols || 1;
 }
 
+/**
+ * Plays the diagonal stagger animation on all cards inside a skills detail panel.
+ * @param {Element} detail - The active .skills-detail element.
+ */
 function animateSkillCards(detail) {
     const list = detail.querySelector('.skills-list');
     const items = list.querySelectorAll('.skills-item');
 
+    // Cancel any running animations and reset state
     items.forEach(item => {
-        const prev = skillsAbortControllers.get(item);
-        if (prev) prev.abort();
+        const prevController = skillsAbortControllers.get(item);
+        if (prevController) prevController.abort();
         item.classList.remove('animate-in');
         item.style.removeProperty('--stagger-delay');
     });
 
+    // Force reflow so CSS transitions restart cleanly
     void list.offsetWidth;
 
     const cols = getSkillsColumns(list);
-    const STEP = 0.08;
+    const STAGGER_STEP = 0.08; // seconds between diagonal waves
 
     items.forEach((item, idx) => {
         const row = Math.floor(idx / cols);
         const col = idx % cols;
-        const delayS = (row + col) * STEP;
+        const delay = (row + col) * STAGGER_STEP;
 
-        const ac = new AbortController();
-        skillsAbortControllers.set(item, ac);
+        const controller = new AbortController();
+        skillsAbortControllers.set(item, controller);
 
-        item.style.setProperty('--stagger-delay', `${delayS}s`);
+        item.style.setProperty('--stagger-delay', `${delay}s`);
         item.classList.add('animate-in');
 
-        item.addEventListener('animationend', () => {
-            item.classList.remove('animate-in');
-            item.style.removeProperty('--stagger-delay');
-        }, { once: true, signal: ac.signal });
+        item.addEventListener(
+            'animationend',
+            () => {
+                item.classList.remove('animate-in');
+                item.style.removeProperty('--stagger-delay');
+            },
+            { once: true, signal: controller.signal }
+        );
     });
 }
 
-const skillsBtns = document.querySelectorAll('.skills-btn');
-
+/** Switch active skills tab and trigger card animation. */
 skillsBtns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
-        const skillDetails = document.querySelectorAll('.skills-detail');
-
         skillsBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        skillDetails.forEach(detail => detail.classList.remove('active'));
-        skillDetails[idx].classList.add('active');
+        skillsDetails.forEach(detail => detail.classList.remove('active'));
+        skillsDetails[idx].classList.add('active');
 
-        animateSkillCards(skillDetails[idx]);
+        animateSkillCards(skillsDetails[idx]);
     });
 });
 
-/*========== skills section initial animation on scroll ==========*/
-const skillsSection = document.querySelector('#skills');
-const skillsCategoryBox = skillsSection.querySelector('.skills-box.category');
-const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Animate category box (paragraph first, then buttons)
-            if (skillsCategoryBox) {
-                skillsCategoryBox.classList.add('animate-in');
+/** Animate skills section when it enters the viewport. */
+const skillsObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                skillsCategoryBox?.classList.add('animate-in');
+
+                const activeDetail = skillsSection.querySelector('.skills-detail.active');
+                if (activeDetail) animateSkillCards(activeDetail);
+            } else {
+                // Reset so the animation replays when scrolling back
+                skillsCategoryBox?.classList.remove('animate-in');
             }
-            
-            // Animate skills cards simultaneously
-            const activeDetail = skillsSection.querySelector('.skills-detail.active');
-            if (activeDetail) {
-                animateSkillCards(activeDetail);
-            }
-        } else {
-            // Remove animate-in class when leaving section so it can re-animate on return
-            if (skillsCategoryBox) {
-                skillsCategoryBox.classList.remove('animate-in');
-            }
-        }
-    });
-}, { threshold: 0.15 });
+        });
+    },
+    { threshold: 0.15 }
+);
 
 skillsObserver.observe(skillsSection);
 
-/*========== dark light mode ==========*/
-let darkModeIcon = document.querySelector('#darkMode-icon');
+/* 4. SCROLL REVEAL */
 
-darkModeIcon.onclick = () => {
-    darkModeIcon.classList.toggle('bx-sun');
-    document.body.classList.toggle('dark-mode');
-}
-
-/*========== scroll reveal ==========*/
 ScrollReveal({
     reset: true,
     distance: '80px',
-    duration: 2000,
-    delay: 200
+    duration: 1500,
+    delay: 100,
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
@@ -152,14 +172,6 @@ ScrollReveal().reveal('.home-img img, .projects-box, .contact-container', { orig
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
 
-// Education timeline sequential animation
-ScrollReveal().reveal('.timeline-item:nth-child(1)', {
-    origin: 'bottom',
-    delay: 300,
-    distance: '50px'
-});
-ScrollReveal().reveal('.timeline-item:nth-child(2)', {
-    origin: 'bottom',
-    delay: 500,
-    distance: '50px'
-});
+// Education timeline — staggered sequential reveal
+ScrollReveal().reveal('.timeline-item:nth-child(1)', { origin: 'bottom', delay: 300, distance: '50px' });
+ScrollReveal().reveal('.timeline-item:nth-child(2)', { origin: 'bottom', delay: 500, distance: '50px' });
