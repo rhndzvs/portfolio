@@ -36,23 +36,88 @@ menuIcon.classList.remove('bx-x');
 navbar.classList.remove('active');
 };
 
+/*========== skills diagonal stagger animation ==========*/
+const skillsAbortControllers = new WeakMap();
+
+function getSkillsColumns(listEl) {
+    const items = listEl.querySelectorAll('.skills-item');
+    if (items.length < 2) return 1;
+    const firstTop = Math.round(items[0].getBoundingClientRect().top);
+    let cols = 0;
+    for (let i = 0; i < items.length; i++) {
+        if (Math.round(items[i].getBoundingClientRect().top) === firstTop) {
+            cols++;
+        } else {
+            break;
+        }
+    }
+    return cols || 1;
+}
+
+function animateSkillCards(detail) {
+    const list = detail.querySelector('.skills-list');
+    const items = list.querySelectorAll('.skills-item');
+
+    items.forEach(item => {
+        const prev = skillsAbortControllers.get(item);
+        if (prev) prev.abort();
+        item.classList.remove('animate-in');
+        item.style.removeProperty('--stagger-delay');
+    });
+
+    void list.offsetWidth;
+
+    const cols = getSkillsColumns(list);
+    const STEP = 0.08;
+
+    items.forEach((item, idx) => {
+        const row = Math.floor(idx / cols);
+        const col = idx % cols;
+        const delayS = (row + col) * STEP;
+
+        const ac = new AbortController();
+        skillsAbortControllers.set(item, ac);
+
+        item.style.setProperty('--stagger-delay', `${delayS}s`);
+        item.classList.add('animate-in');
+
+        item.addEventListener('animationend', () => {
+            item.classList.remove('animate-in');
+            item.style.removeProperty('--stagger-delay');
+        }, { once: true, signal: ac.signal });
+    });
+}
+
 const skillsBtns = document.querySelectorAll('.skills-btn');
 
 skillsBtns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
         const skillDetails = document.querySelectorAll('.skills-detail');
 
-        skillsBtns.forEach(btn => {
-            btn.classList.remove('active');
-        });
+        skillsBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        skillDetails.forEach(detail => {
-            detail.classList.remove('active');
-        });
+        skillDetails.forEach(detail => detail.classList.remove('active'));
         skillDetails[idx].classList.add('active');
+
+        animateSkillCards(skillDetails[idx]);
     });
 });
+
+/*========== skills section initial animation on scroll ==========*/
+const skillsSection = document.querySelector('#skills');
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const activeDetail = skillsSection.querySelector('.skills-detail.active');
+            if (activeDetail) {
+                animateSkillCards(activeDetail);
+            }
+        }
+    });
+}, { threshold: 0.15 });
+
+skillsObserver.observe(skillsSection);
 
 /*========== dark light mode ==========*/
 let darkModeIcon = document.querySelector('#darkMode-icon');
@@ -71,7 +136,7 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img img, .skills-container, .projects-box, .contact-container', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img img, .projects-box, .contact-container', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
 

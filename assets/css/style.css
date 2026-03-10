@@ -523,6 +523,23 @@ span {
     color: var(--main-color);
 }
 
+/*========== skills diagonal stagger animation ==========*/
+@keyframes skillCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-item.animate-in {
+    animation: skillCardIn 0.45s ease both;
+    animation-delay: var(--stagger-delay, 0s);
+}
+
 .projects h2 {
     margin-bottom: 5rem;
 }
