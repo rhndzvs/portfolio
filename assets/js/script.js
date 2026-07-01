@@ -175,3 +175,94 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // Education timeline — staggered sequential reveal
 ScrollReveal().reveal('.timeline-item:nth-child(1)', { origin: 'bottom', delay: 300, distance: '50px' });
 ScrollReveal().reveal('.timeline-item:nth-child(2)', { origin: 'bottom', delay: 500, distance: '50px' });
+
+/* 5. CONTACT FORM */
+const contactForm        = document.getElementById('contactForm');
+const contactModal       = document.getElementById('contactModal');
+const contactModalClose  = document.getElementById('contactModalClose');
+const submitBtn          = contactForm.querySelector('button[type="submit"]');
+
+const RATE_LIMIT_MS      = 60 * 1000; // 60 seconds
+let lastSubmitTime       = 0;
+let cooldownInterval     = null;
+
+function openContactModal() {
+    contactModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeContactModal() {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function startCooldown() {
+    submitBtn.disabled = true;
+
+    cooldownInterval = setInterval(() => {
+        const elapsed   = Date.now() - lastSubmitTime;
+        const remaining = Math.ceil((RATE_LIMIT_MS - elapsed) / 1000);
+
+        if (remaining <= 0) {
+            clearInterval(cooldownInterval);
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Send Message';
+        } else {
+            submitBtn.textContent = `Wait ${remaining}s`;
+        }
+    }, 1000);
+}
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Client-side rate limit check
+    const now     = Date.now();
+    const elapsed = now - lastSubmitTime;
+
+    if (lastSubmitTime && elapsed < RATE_LIMIT_MS) {
+        const remaining = Math.ceil((RATE_LIMIT_MS - elapsed) / 1000);
+        alert(`Please wait ${remaining} second${remaining !== 1 ? 's' : ''} before sending another message.`);
+        return;
+    }
+
+    const data   = new FormData(contactForm);
+    const action = contactForm.getAttribute('action');
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+        const response = await fetch(action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' },
+        });
+
+        if (response.ok) {
+            lastSubmitTime = Date.now();
+            contactForm.reset();
+            openContactModal();
+            startCooldown();  // start 60s cooldown after successful send
+        } else {
+            alert('Something went wrong. Please try again or email me directly.');
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Send Message';
+        }
+    } catch (err) {
+        alert('Something went wrong. Please check your connection and try again.');
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+    }
+});
+
+// Close modal
+contactModalClose.addEventListener('click', closeContactModal);
+contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) closeContactModal();
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+        closeContactModal();
+    }
+});
