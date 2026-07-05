@@ -511,6 +511,18 @@ span {
     color: var(--main-color);
 }
 
+.skills-item img {
+    width: 8.5rem;
+    height: 8.5rem;
+    object-fit: contain;
+    transition: filter 0.5s ease;
+    filter: brightness(1) invert(0);
+}
+
+.skills-item:hover img {
+    filter: invert(67%) sepia(98%) saturate(400%) hue-rotate(148deg) brightness(95%);
+}
+
 .skills-item h3 {
     font-size: 1.6rem;
     margin-top: 1rem;
@@ -518,6 +530,24 @@ span {
 
 .skills-item:hover h3 {
     color: var(--main-color);
+}
+
+/* Light mode: show light icon, hide dark icon */
+.icon-dark {
+    display: none;
+}
+
+.icon-light {
+    display: block;
+}
+
+/* Dark mode: flip it */
+.dark-mode .icon-dark {
+    display: block;
+}
+
+.dark-mode .icon-light {
+    display: none;
 }
 
 /*========== skills diagonal stagger animation ==========*/
