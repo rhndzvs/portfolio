@@ -340,7 +340,7 @@
             </div>
 
             <div class="contact-box">
-                <form action="" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/meebbeob" method="POST">
                     <div class="field-box">
                         <input type="text" name="full_name" placeholder="Full Name" required>
                         <input type="email" name="email_address" placeholder="Email Address" required>
@@ -359,6 +359,16 @@
             <p>&copy; 2026 Rhundei Zen Ballesteros. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Contact Confirmation Modal -->
+    <dialog id="contactModal" class="contact-modal">
+        <div class="contact-modal-content">
+            <i class='bx bx-check-circle contact-modal-icon'></i>
+            <h3>Thank You!</h3>
+            <p>Thank you for reaching out. I'll review your message and get back to you as soon as I can.</p>
+            <button type="button" id="closeModalBtn" class="btn">Close</button>
+        </div>
+    </dialog>
 
     <!-- Scroll Reveal Animation Library -->
     <script src="https://unpkg.com/scrollreveal"></script>

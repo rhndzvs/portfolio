@@ -175,3 +175,38 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // Education timeline — staggered sequential reveal
 ScrollReveal().reveal('.timeline-item:nth-child(1)', { origin: 'bottom', delay: 300, distance: '50px' });
 ScrollReveal().reveal('.timeline-item:nth-child(2)', { origin: 'bottom', delay: 500, distance: '50px' });
+
+/* 5. CONTACT FORM — AJAX Submission via Formspree */
+const contactForm = document.querySelector('#contactForm');
+const contactModal = document.querySelector('#contactModal');
+const closeModalBtn = document.querySelector('#closeModalBtn');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            contactForm.reset();
+            contactModal.showModal();
+        } else {
+            throw new Error('Submission failed');
+        }
+    } catch (error) {
+        alert('Something went wrong. Please try emailing me directly.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+    }
+});
+
+closeModalBtn.addEventListener('click', () => contactModal.close());
