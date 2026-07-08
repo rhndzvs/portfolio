@@ -655,20 +655,19 @@ span {
 .project-card .btn {
     display: inline-block;
     padding: 1rem 3rem;
-    background-color: var(--main-color);
-    box-shadow: 0 0 25px var(--main-color);
-    border-radius: 3rem;
-    font-size: 1.8rem;
-    color: var(--white-color);
+    background: var(--main-color);
     border: 2px solid transparent;
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s ease;
 }
 
 .project-card .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color);
 }
 
 .contact h2 {
@@ -773,7 +772,7 @@ span {
     display: inline-block;
     padding: 1rem 3rem;
     background: var(--main-color);
-    border: 0.2rem solid var(--main-color);
+    border: 2px solid transparent;
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.6rem;
@@ -781,13 +780,11 @@ span {
     font-weight: 500;
     margin-top: 2rem;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 
 .contact-box .btn:hover {
-    background: transparent;
-    color: var(--main-color);
-    box-shadow: none;
+    transform: scale(1.05);
 }
 
 .contact-box .btn:disabled {
@@ -841,12 +838,14 @@ span {
     display: inline-block;
     padding: 1rem 3rem;
     background: var(--main-color);
+    border: 2px solid transparent;
     border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.6rem;
     color: var(--bg-color);
     font-weight: 500;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .contact-modal .btn:hover {
