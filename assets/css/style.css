@@ -790,6 +790,11 @@ span {
     box-shadow: none;
 }
 
+.contact-box .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .contact-modal {
     position: fixed;
     top: 50%;
@@ -846,6 +851,31 @@ span {
 
 .contact-modal .btn:hover {
     transform: scale(1.05);
+}
+
+.toast {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(2rem);
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    border: 0.15rem solid var(--main-color);
+    padding: 1.5rem 2.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0.5rem 2rem var(--shadow-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 200;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .footer {

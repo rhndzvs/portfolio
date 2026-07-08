@@ -180,19 +180,54 @@ ScrollReveal().reveal('.timeline-item:nth-child(2)', { origin: 'bottom', delay: 
 const contactForm = document.querySelector('#contactForm');
 const contactModal = document.querySelector('#contactModal');
 const closeModalBtn = document.querySelector('#closeModalBtn');
+const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+/** Shows a toast message for a few seconds, then fades it out. */
+let toastTimeout;
+function showToast(message, duration = 3000) {
+    const toast = document.querySelector('#toast');
+    clearTimeout(toastTimeout);
+    toast.textContent = message;
+    toast.classList.add('visible');
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+    }, duration);
+}
+
+const COOLDOWN_MS = 60 * 1000; // 60 seconds
+let cooldownInterval;
+
+/** Disables the submit button and counts down until it's usable again. */
+function startCooldown(msRemaining) {
+    clearInterval(cooldownInterval);
+    submitBtn.disabled = true;
+
+    const tick = () => {
+        const secondsLeft = Math.ceil(msRemaining / 1000);
+        if (secondsLeft <= 0) {
+            clearInterval(cooldownInterval);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            return;
+        }
+        submitBtn.textContent = `Send Message (${secondsLeft}s)`;
+        msRemaining -= 1000;
+    };
+
+    tick();
+    cooldownInterval = setInterval(tick, 1000);
+}
+
+// Resume cooldown on page load if user reloads mid-wait
+const lastSubmit = localStorage.getItem('lastContactSubmit');
+if (lastSubmit) {
+    const msRemaining = COOLDOWN_MS - (Date.now() - Number(lastSubmit));
+    if (msRemaining > 0) startCooldown(msRemaining);
+}
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const COOLDOWN_MS = 60 * 1000; // 60 seconds
-    const lastSubmit = localStorage.getItem('lastContactSubmit');
-    if (lastSubmit && Date.now() - Number(lastSubmit) < COOLDOWN_MS) {
-        const secondsLeft = Math.ceil((COOLDOWN_MS - (Date.now() - Number(lastSubmit))) / 1000);
-        alert(`Please wait ${secondsLeft}s before sending another message.`);
-        return;
-    }
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
@@ -207,12 +242,12 @@ contactForm.addEventListener('submit', async (e) => {
             localStorage.setItem('lastContactSubmit', Date.now().toString());
             contactForm.reset();
             contactModal.showModal();
+            startCooldown(COOLDOWN_MS);
         } else {
             throw new Error('Submission failed');
         }
     } catch (error) {
-        alert('Something went wrong. Please try emailing me directly.');
-    } finally {
+        showToast('Something went wrong. Please try emailing me directly.');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
     }
