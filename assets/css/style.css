@@ -744,14 +744,24 @@ span {
     color: var(--text-color);
 }
 
+.contact-box .field-box input:-webkit-autofill,
+.contact-box .field-box input:-webkit-autofill:hover,
+.contact-box .field-box input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 100rem var(--bg-color) inset;
+    box-shadow: 0 0 0 100rem var(--bg-color) inset;
+    -webkit-text-fill-color: var(--text-color);
+    caret-color: var(--text-color);
+    transition: background-color 5000s ease-in-out 0s; /* prevents Chrome's autofill yellow flash */
+}
+
 .contact-box .field-box input[name="email_subject"],
 .contact-box .field-box textarea {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
 .contact-box .field-box textarea {
-  height: 26rem;
-  resize: none;
+    height: 26rem;
+    resize: none;
 }
 
 .contact-box .field-box input:focus,

@@ -184,6 +184,14 @@ const closeModalBtn = document.querySelector('#closeModalBtn');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const COOLDOWN_MS = 60 * 1000; // 60 seconds
+    const lastSubmit = localStorage.getItem('lastContactSubmit');
+    if (lastSubmit && Date.now() - Number(lastSubmit) < COOLDOWN_MS) {
+        const secondsLeft = Math.ceil((COOLDOWN_MS - (Date.now() - Number(lastSubmit))) / 1000);
+        alert(`Please wait ${secondsLeft}s before sending another message.`);
+        return;
+    }
+
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
@@ -196,6 +204,7 @@ contactForm.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
+            localStorage.setItem('lastContactSubmit', Date.now().toString());
             contactForm.reset();
             contactModal.showModal();
         } else {
