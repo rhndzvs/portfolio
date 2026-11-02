@@ -7,7 +7,8 @@ export default function Footer() {
     <footer className="border-t border-border">
       <Container>
         <div className="flex flex-col py-8 text-footer text-muted md:flex-row md:items-center md:justify-between md:py-6">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-0">
+          <p className="order-last text-footer md:order-none">© {new Date().getFullYear()} {profile.name}</p>
+          <div className="order-first flex flex-nowrap items-center gap-4 md:order-none">
             {socials.map((social) => (
               <a
                 key={social.kind}
@@ -19,14 +20,7 @@ export default function Footer() {
                 <span>{social.label}</span>
               </a>
             ))}
-            <a
-              href={`mailto:${profile.email}`}
-              className="flex items-center px-2 py-3 text-footer text-muted no-underline hover:text-foreground md:px-0 md:py-0"
-            >
-              {profile.email}
-            </a>
           </div>
-          <p className="text-footer">© {new Date().getFullYear()} {profile.name}</p>
         </div>
       </Container>
     </footer>
