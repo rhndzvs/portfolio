@@ -10,6 +10,7 @@
   --type-greeting: 18px;
   --type-body: 16px;
   --type-nav: 15px;
+  --type-site-name: 20px;
   --type-label: 12px;
   --type-footer: 14px;
   --leading-hero: 1.1;
@@ -33,6 +34,7 @@
     --type-section: 32px;
     --type-project: 24px;
     --type-greeting: 20px;
+    --type-site-name: 22px;
     --type-label: 13px;
   }
 }
@@ -65,6 +67,8 @@
   --text-body--line-height: var(--leading-body);
   --text-nav: var(--type-nav);
   --text-nav--line-height: var(--leading-nav);
+  --text-site-name: var(--type-site-name);
+  --text-site-name--line-height: 1.2;
   --text-label: var(--type-label);
   --text-label--line-height: var(--leading-label);
   --text-footer: var(--type-footer);

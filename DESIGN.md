@@ -44,6 +44,7 @@ Type scale (mobile / desktop):
 
 | Element | Mobile | Desktop | Line height |
 |---|---|---|---|
+| Site name (nav) | 20px | 22px | 1.2 |
 | Hero heading (h1) | 36px | 56px | 1.1 |
 | Section heading (h2) | 24px | 32px | 1.2 |
 | Card or project title (h3) | 20px | 24px | 1.25 |
@@ -78,7 +79,7 @@ Define these as tokens in globals.css (@theme) and use the tokens in components.
 
 ## Components
 
-**Nav:** Height 64px on desktop, 56px on mobile. Name on the left, links on the right (Home, Projects, About, Contact), theme toggle at the end. Links have no underline at rest. They use `muted` color, shift to `foreground` on hover, and show a 1px underline on hover. The current page uses `foreground` color with a 1px underline. On mobile, collapse links into a menu toggle that opens a simple full-width panel. Toggle button is at least 44x44px (it can extend beyond the nav's visual height with padding). Sticky is fine if it stays slim. The nav is sticky at the top of the viewport. It has a solid `background` fill (no transparency, no blur) and keeps its 1px bottom border. It does not hide on scroll. The mobile menu panel opens directly under the nav and overlays the content.
+**Nav:** Height 64px on desktop, 56px on mobile. Site name on the left (Newsreader, `foreground`, links to Home), links on the right (Home, Projects, About, Contact), theme toggle at the end. Links are `muted` at rest and `foreground` on hover, with no underline on hover. The current page's link is `foreground` with a 1px underline, and it is the only link with an underline. Home is active only on `/`. Projects is active on `/projects` and any `/projects/...` page. The theme toggle icon is `muted` at rest and `foreground` on hover, with the 8% circular fill on hover, so it matches the links. On mobile, collapse links into a menu toggle that opens a simple full-width panel, with the same active and hover rules. Toggle buttons are at least 44x44px. The nav is sticky at the top with a solid `background` fill (no transparency, no blur) and a 1px bottom border. It does not hide on scroll.
 
 **Buttons:** Height 44px minimum, horizontal padding 20px, 8px radius, body font, medium weight. Visible focus ring using `foreground`.
 
