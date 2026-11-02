@@ -1,4 +1,6 @@
-export type SocialKind = "github" | "linkedin";
+import { profile } from "@/content/profile";
+
+export type SocialKind = "facebook" | "linkedin" | "github" | "email";
 
 export type SocialLink = {
   label: string;
@@ -8,13 +10,23 @@ export type SocialLink = {
 
 export const socials: SocialLink[] = [
   {
-    label: "GitHub",
-    kind: "github",
-    href: "https://github.com/your-username",
+    label: "Facebook",
+    kind: "facebook",
+    href: "https://www.facebook.com/your-username",
   },
   {
     label: "LinkedIn",
     kind: "linkedin",
     href: "https://www.linkedin.com/in/your-username",
+  },
+  {
+    label: "GitHub",
+    kind: "github",
+    href: "https://github.com/your-username",
+  },
+  {
+    label: "Email",
+    kind: "email",
+    href: `mailto:${profile.email}`,
   },
 ];

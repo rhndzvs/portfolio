@@ -24,8 +24,11 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: profile.name,
-  description: profile.tagline,
+  title: {
+    default: `${profile.name} – ${profile.professionalTitle}`,
+    template: `%s – ${profile.name}`,
+  },
+  description: profile.metadataDescription,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,9 +1,5 @@
-import { profile } from "@/content/profile";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
-  return (
-    <section className="py-16 md:py-24">
-      <h1 className="text-[40px] leading-[1.1] md:text-[64px]">{profile.pageTitles.home}</h1>
-    </section>
-  );
+  return <Hero />;
 }
