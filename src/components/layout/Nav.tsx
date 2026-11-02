@@ -44,7 +44,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            className="font-heading text-site-name text-foreground"
+            className="font-heading text-site-name tracking-site-name text-foreground"
             onClick={() => setIsOpen(false)}
           >
             {profile.name}
@@ -69,7 +69,7 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
-            <ThemeToggle />
+            <ThemeToggle className="md:ml-3 md:-mr-3" />
             <button
               type="button"
               className="flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:text-foreground md:hidden"
