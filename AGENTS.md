@@ -15,7 +15,7 @@ Goal: a fast, minimal, mobile-friendly site that shows projects first, then expe
 - `motion` for animation (import from `motion/react`)
 - `next-themes` for dark and light mode
 - `next/font` for fonts
-- Boxicons for icons. Check the current official docs for the correct React package and import style before installing. Do not guess package names.
+- Boxicons for icons, using the `@boxicons/react` package (already installed). Do not use the legacy `boxicons` package. Import icons by name, for example `import { Alarm } from '@boxicons/react'`. Check the official docs at docs.boxicons.com for icon names before using one.
 - Hosting on Vercel
 - No backend and no database. The contact form uses a Next.js route handler with Resend.
 
