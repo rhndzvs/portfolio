@@ -70,6 +70,7 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 - Border radius: 8px for everything. Do not mix radii.
 - Separate sections with spacing and thin 1px borders, not background color blocks.
 - No heavy shadows. Use 1px borders for structure.
+- Every page's main content is at least one screen tall: `min-height: calc(100svh - var(--nav-height))`. The footer is never visible on first load. Use `svh`, not `vh`. On the home page, the hero fills that space with its content vertically centered.
 
 ## Components
 
@@ -89,13 +90,17 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 
 **Inline links (inside paragraphs):** `foreground` color with an underline, and a small underline offset. Hover increases contrast only. Navigation, social icons, and buttons are not inline links and do not use this style.
 
-**Hero:** A small muted greeting line above the h1 (for example "Hi, I'm Rhundei"), in the body or mono font at 16px to 18px. The h1 holds only the main statement. On desktop, the text column and photo column are aligned to the top.
+**Hero:** A greeting line above the h1 (for example "Hi, I'm Rhundei"), in Newsreader italic, `foreground` color, 20px to 22px. The h1 holds only the main statement. On desktop, text and photo columns are vertically centered with each other. The hero fills the screen (see Layout).
+
+**Circular icon buttons (socials):** 44px circle, 1px `border`. On hover, fill with `foreground` and change the icon to `background` (inverted), 150ms. Visible focus ring.
+
+**Theme toggle:** 44px touch target, no border at rest. On hover, show a circular fill of `foreground` at about 8% opacity. Visible focus ring.
 
 ## Motion
 
 Use `motion` sparingly.
 
-- Allowed: fade and slight upward translate (8px to 16px) on scroll into view, once only. Subtle hover transitions (150ms to 200ms) on links and buttons. Theme change transition on color.
+- Allowed: fade and slight upward translate (8px to 16px) on scroll into view, once only. Subtle hover transitions (150ms to 200ms) on links and buttons. - Switching between light and dark is instant, with no transition at all.
 - Easing: ease-out. Duration 300ms to 500ms for reveals.
 - Not allowed: parallax, typewriter text, floating or bouncing elements, cursor effects, staggering every single element, infinite loops.
 - Always respect reduced motion through `MotionConfig reducedMotion="user"`.

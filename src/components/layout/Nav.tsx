@@ -23,7 +23,7 @@ export default function Nav() {
     <header className="border-b border-border">
       <Container>
         <nav
-          className="flex min-h-14 items-center justify-between gap-4 md:min-h-16"
+          className="site-nav flex items-center justify-between gap-4"
           aria-label="Main navigation"
         >
           <Link

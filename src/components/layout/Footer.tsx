@@ -16,7 +16,6 @@ function SocialIcon({ kind }: { kind: (typeof socials)[number]["kind"] }) {
     return <Github size="sm" aria-hidden="true" />;
   }
 
-  return null;
 }
 
 export default function Footer() {
@@ -26,9 +25,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} {profile.name}</p>
           <div className="flex flex-wrap items-center gap-5">
-            {socials
-              .filter((social) => social.kind !== "email")
-              .map((social) => (
+            {socials.map((social) => (
               <a
                 key={social.kind}
                 href={social.href}
@@ -40,7 +37,7 @@ export default function Footer() {
                 <SocialIcon kind={social.kind} />
                 <span>{social.label}</span>
               </a>
-              ))}
+            ))}
             <a
               href={`mailto:${profile.email}`}
               className="flex min-h-11 items-center text-foreground hover:text-foreground"

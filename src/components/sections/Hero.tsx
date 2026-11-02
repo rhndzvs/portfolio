@@ -1,4 +1,4 @@
-import { Envelope, Facebook, Github, Linkedin } from "@boxicons/react";
+import { Facebook, Github, Linkedin } from "@boxicons/react";
 import { profile } from "@/content/profile";
 import { socials, type SocialKind } from "@/content/socials";
 import PhotoPlaceholder from "@/components/sections/PhotoPlaceholder";
@@ -12,18 +12,19 @@ function SocialIcon({ kind }: { kind: SocialKind }) {
       return <Linkedin size="sm" aria-hidden="true" />;
     case "github":
       return <Github size="sm" aria-hidden="true" />;
-    case "email":
-      return <Envelope size="sm" aria-hidden="true" />;
   }
 }
 
 export default function Hero() {
   return (
-    <section className="py-16 md:py-24" aria-labelledby="hero-heading">
+    <section
+      className="hero flex items-center py-16 md:py-24"
+      aria-labelledby="hero-heading"
+    >
       <Reveal>
-        <div className="grid items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] md:gap-16">
+        <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] md:gap-16">
           <div className="order-2 max-w-2xl md:order-1">
-            <p className="text-base leading-[1.6] text-muted md:text-lg">
+            <p className="font-heading text-xl italic leading-[1.2] text-foreground md:text-[22px]">
               {profile.greeting}
             </p>
             <h1
@@ -36,22 +37,18 @@ export default function Hero() {
               {profile.heroDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-3" aria-label="Social links">
-              {socials.map((social) => {
-                const isEmail = social.kind === "email";
-
-                return (
-                  <a
-                    key={social.kind}
-                    href={social.href}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground hover:border-foreground hover:text-foreground"
-                    aria-label={social.label}
-                    target={isEmail ? undefined : "_blank"}
-                    rel={isEmail ? undefined : "noopener noreferrer"}
-                  >
-                    <SocialIcon kind={social.kind} />
-                  </a>
-                );
-              })}
+              {socials.map((social) => (
+                <a
+                  key={social.kind}
+                  href={social.href}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors duration-150 hover:border-foreground hover:bg-foreground hover:text-background focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SocialIcon kind={social.kind} />
+                </a>
+              ))}
             </div>
           </div>
 

@@ -27,7 +27,7 @@ export const profile: Profile = {
   metadataDescription:
     "Software and AI projects by Rhundei Zen Ballesteros, a 4th-year IT student at Asia Pacific College.",
   photoPlaceholder: "Photo placeholder",
-  email: "hello@example.com",
+  email: "rhundeizenballesteros@gmail.com",
   pageTitles: {
     home: "Home placeholder",
     projects: "Projects placeholder",

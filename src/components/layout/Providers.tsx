@@ -6,7 +6,12 @@ import type { ReactNode } from "react";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </ThemeProvider>
   );
