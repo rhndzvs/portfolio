@@ -24,16 +24,16 @@ export default function Hero() {
       <Reveal>
         <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] md:gap-16">
           <div className="order-2 max-w-2xl md:order-1">
-            <p className="font-heading text-xl italic leading-[1.2] text-foreground md:text-[22px]">
+            <p className="font-heading text-greeting italic text-foreground">
               {profile.greeting}
             </p>
             <h1
               id="hero-heading"
-              className="mt-2 text-[40px] leading-[1.1] md:mt-3 md:text-[64px]"
+              className="mt-2 text-hero md:mt-3"
             >
               {profile.heroHeading}
             </h1>
-            <p className="mt-6 max-w-[520px] text-base leading-[1.6] text-muted md:text-lg">
+            <p className="mt-6 max-w-[520px] text-body text-muted">
               {profile.heroDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-3" aria-label="Social links">

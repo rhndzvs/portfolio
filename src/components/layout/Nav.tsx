@@ -20,7 +20,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-border">
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
       <Container>
         <nav
           className="site-nav flex items-center justify-between gap-4"
@@ -28,7 +28,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            className="font-heading text-xl text-foreground hover:text-foreground"
+            className="font-heading text-nav text-foreground hover:text-foreground"
             onClick={() => setIsOpen(false)}
           >
             {profile.name}
@@ -39,7 +39,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex min-h-11 items-center hover:text-foreground hover:underline hover:underline-offset-4 ${
+                className={`flex min-h-11 items-center text-nav hover:text-foreground hover:underline hover:underline-offset-4 ${
                   pathname === link.href
                     ? "text-foreground underline underline-offset-4"
                     : "text-muted"
@@ -70,14 +70,20 @@ export default function Nav() {
           </div>
         </nav>
 
-        {isOpen && (
-          <div id="mobile-navigation" className="border-t border-border py-4 md:hidden">
-            <div className="flex flex-col">
+      </Container>
+
+      {isOpen && (
+        <div
+          id="mobile-navigation"
+          className="absolute left-0 right-0 top-full border-b border-border bg-background md:hidden"
+        >
+          <Container>
+            <div className="flex flex-col py-4">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex min-h-11 items-center hover:text-foreground hover:underline hover:underline-offset-4 ${
+                  className={`flex min-h-11 items-center text-nav hover:text-foreground hover:underline hover:underline-offset-4 ${
                     pathname === link.href
                       ? "text-foreground underline underline-offset-4"
                       : "text-muted"
@@ -88,9 +94,9 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
-          </div>
-        )}
-      </Container>
+          </Container>
+        </div>
+      )}
     </header>
   );
 }

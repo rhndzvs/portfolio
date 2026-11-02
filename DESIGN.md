@@ -40,17 +40,20 @@ All fonts load through `next/font/google` and are exposed as CSS variables.
 
 Do not use Inter, Geist, Space Grotesk, Poppins, Roboto, or system default fonts.
 
-Type scale (mobile to desktop):
+Type scale (mobile / desktop):
 
 | Element | Mobile | Desktop | Line height |
 |---|---|---|---|
-| Hero heading (h1) | 40px | 64px | 1.1 |
-| Section heading (h2) | 28px | 40px | 1.15 |
-| Card or project title (h3) | 22px | 28px | 1.2 |
-| Body | 16px | 18px | 1.6 |
-| Small label (mono) | 13px | 14px | 1.4 |
+| Hero heading (h1) | 36px | 56px | 1.1 |
+| Section heading (h2) | 24px | 32px | 1.2 |
+| Card or project title (h3) | 20px | 24px | 1.25 |
+| Greeting line | 18px | 20px | 1.4 |
+| Body | 16px | 16px | 1.6 |
+| Nav links and buttons | 15px | 15px | 1.4 |
+| Small label (mono) | 12px | 13px | 1.4 |
 
-Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels are uppercase only when short, with light tracking.
+Form inputs are always at least 16px so mobile browsers do not zoom in on focus.
+Define these as tokens in globals.css (@theme) and use the tokens in components. Do not hardcode font sizes in components.
 
 ## Spacing
 
@@ -74,7 +77,7 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 
 ## Components
 
-**Nav:** Height 64px on desktop, 56px on mobile. Name on the left, links on the right (Home, Projects, About, Contact), theme toggle at the end. Links have no underline at rest. They use `muted` color, shift to `foreground` on hover, and show a 1px underline on hover. The current page uses `foreground` color with a 1px underline. On mobile, collapse links into a menu toggle that opens a simple full-width panel. Toggle button is at least 44x44px (it can extend beyond the nav's visual height with padding). Sticky is fine if it stays slim.
+**Nav:** Height 64px on desktop, 56px on mobile. Name on the left, links on the right (Home, Projects, About, Contact), theme toggle at the end. Links have no underline at rest. They use `muted` color, shift to `foreground` on hover, and show a 1px underline on hover. The current page uses `foreground` color with a 1px underline. On mobile, collapse links into a menu toggle that opens a simple full-width panel. Toggle button is at least 44x44px (it can extend beyond the nav's visual height with padding). Sticky is fine if it stays slim. The nav is sticky at the top of the viewport. It has a solid `background` fill (no transparency, no blur) and keeps its 1px bottom border. It does not hide on scroll. The mobile menu panel opens directly under the nav and overlays the content.
 
 **Buttons:** Height 44px minimum, horizontal padding 20px, 8px radius, body font, medium weight. Visible focus ring using `foreground`.
 
@@ -100,8 +103,8 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 
 Use `motion` sparingly.
 
-- Allowed: fade and slight upward translate (8px to 16px) on scroll into view, once only. Subtle hover transitions (150ms to 200ms) on links and buttons. - Switching between light and dark is instant, with no transition at all.
-- Easing: ease-out. Duration 300ms to 500ms for reveals.
+- Allowed: fade and upward translate of 24px on scroll into view, once only. It starts when the element is about 15% inside the viewport, not when it first touches the edge. Subtle hover transitions (150ms to 200ms) on links and buttons.
+- Easing: ease-out. Reveal duration is about 700ms. Hover transitions stay 150ms to 200ms.
 - Not allowed: parallax, typewriter text, floating or bouncing elements, cursor effects, staggering every single element, infinite loops.
 - Always respect reduced motion through `MotionConfig reducedMotion="user"`.
 

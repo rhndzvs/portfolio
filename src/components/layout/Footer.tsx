@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border">
       <Container>
-        <div className="flex flex-col gap-6 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-6 py-8 text-body text-muted md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} {profile.name}</p>
           <div className="flex flex-wrap items-center gap-5">
             {socials.map((social) => (

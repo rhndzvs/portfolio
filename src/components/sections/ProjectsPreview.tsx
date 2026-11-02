@@ -32,7 +32,7 @@ function ProjectLinks({ project }: { project: Project }) {
         <a
           key={link.label}
           href={link.href}
-          className="inline-flex min-h-11 items-center gap-2 text-sm text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="inline-flex min-h-11 items-center gap-2 text-nav text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -53,10 +53,10 @@ function ProjectRow({
 }) {
   return (
     <li className="border-b border-border last:border-b-0">
-      <Reveal>
-        <div className="grid gap-6 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12 md:py-12">
+      <Reveal mode="in-view">
+        <div className="grid gap-6 py-8 md:grid-cols-[45%_minmax(0,1fr)] md:gap-12 md:py-12">
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
-            <span className="order-2 font-mono text-[13px] leading-[1.4] text-muted md:order-1">
+            <span className="order-2 font-mono text-label text-muted md:order-1">
               {String(index + 1).padStart(2, "0")}
             </span>
             <div className="order-1 md:order-2">
@@ -67,18 +67,18 @@ function ProjectRow({
           <div className="flex flex-col items-start">
             <Link
               href={`/projects/${project.slug}`}
-              className="rounded-sm text-2xl leading-[1.2] hover:text-muted focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background md:text-[28px]"
+              className="rounded-sm text-project hover:text-muted focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <h3>{project.title}</h3>
             </Link>
-            <p className="mt-4 max-w-xl text-base leading-[1.6] text-muted md:text-lg">
+            <p className="mt-4 max-w-xl text-body text-muted">
               {project.summary}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {project.stack.map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-md border border-border px-2 py-1 font-mono text-[13px] leading-[1.4] text-muted"
+                  className="rounded-md border border-border px-2 py-1 font-mono text-label text-muted"
                 >
                   {technology}
                 </span>
@@ -100,17 +100,17 @@ export default function ProjectsPreview() {
       className="py-16 md:py-24"
       aria-labelledby="projects-preview-heading"
     >
-      <Reveal>
+      <Reveal mode="in-view">
         <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
           <h2
             id="projects-preview-heading"
-            className="text-[28px] leading-[1.15] md:text-[40px]"
+            className="text-section"
           >
             Projects
           </h2>
           <Link
             href="/projects"
-            className="inline-flex min-h-11 items-center gap-2 self-start text-sm text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background md:self-auto"
+            className="inline-flex min-h-11 items-center gap-2 self-start text-nav text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background md:self-auto"
           >
             View all projects
             <ArrowRight size="sm" aria-hidden="true" />

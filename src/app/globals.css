@@ -4,6 +4,20 @@
 
 :root {
   --nav-height: 56px;
+  --type-hero: 36px;
+  --type-section: 24px;
+  --type-project: 20px;
+  --type-greeting: 18px;
+  --type-body: 16px;
+  --type-nav: 15px;
+  --type-label: 12px;
+  --leading-hero: 1.1;
+  --leading-section: 1.2;
+  --leading-project: 1.25;
+  --leading-greeting: 1.4;
+  --leading-body: 1.6;
+  --leading-nav: 1.4;
+  --leading-label: 1.4;
   --background: #f7f6f3;
   --foreground: #171717;
   --muted: #6b6b66;
@@ -13,6 +27,11 @@
 @media (min-width: 768px) {
   :root {
     --nav-height: 64px;
+    --type-hero: 56px;
+    --type-section: 32px;
+    --type-project: 24px;
+    --type-greeting: 20px;
+    --type-label: 13px;
   }
 }
 
@@ -32,6 +51,20 @@
   --font-body: var(--font-hanken);
   --font-mono: var(--font-dm-mono);
   --container-site: 1100px;
+  --text-hero: var(--type-hero);
+  --text-hero--line-height: var(--leading-hero);
+  --text-section: var(--type-section);
+  --text-section--line-height: var(--leading-section);
+  --text-project: var(--type-project);
+  --text-project--line-height: var(--leading-project);
+  --text-greeting: var(--type-greeting);
+  --text-greeting--line-height: var(--leading-greeting);
+  --text-body: var(--type-body);
+  --text-body--line-height: var(--leading-body);
+  --text-nav: var(--type-nav);
+  --text-nav--line-height: var(--leading-nav);
+  --text-label: var(--type-label);
+  --text-label--line-height: var(--leading-label);
 }
 
 * {
@@ -40,6 +73,7 @@
 
 html {
   background: var(--background);
+  scroll-padding-top: var(--nav-height);
 }
 
 @utility site-nav {
@@ -58,8 +92,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
 }
 
 h1,
