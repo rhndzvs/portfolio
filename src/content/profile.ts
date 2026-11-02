@@ -2,6 +2,7 @@ export type Profile = {
   name: string;
   professionalTitle: string;
   tagline: string;
+  greeting: string;
   heroHeading: string;
   heroDescription: string;
   metadataDescription: string;
@@ -19,9 +20,10 @@ export const profile: Profile = {
   name: "Rhundei Zen Ballesteros",
   professionalTitle: "Software & AI Engineer",
   tagline: "I build software and AI projects.",
+  greeting: "Hi, I'm Rhundei",
   heroHeading: "I build software and AI projects.",
   heroDescription:
-    "I am a 4th-year IT student at Asia Pacific College. This is where I share what I have built, what I have worked on, and what I am learning.",
+    "I enjoy building useful things with code and AI. This is where I share the projects I've made, the work I've done, and what I'm learning along the way.",
   metadataDescription:
     "Software and AI projects by Rhundei Zen Ballesteros, a 4th-year IT student at Asia Pacific College.",
   photoPlaceholder: "Photo placeholder",

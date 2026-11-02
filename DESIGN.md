@@ -19,13 +19,12 @@ Warm neutral palette. No bright accent. Define as CSS variables in `globals.css`
 | `foreground` | `#171717` | `#EDEDEA` |
 | `muted` | `#6B6B66` | `#8E8E88` |
 | `border` | `#E4E2DC` | `#262624` |
-| `accent` (hover and selection only) | `#B4532A` | `#B4532A` |
-
 Rules:
+- There is no accent color. The site is strictly neutral for now.
 - Primary button: filled with `foreground`, text in `background` (inverts per theme).
 - Secondary button: transparent with a `border`, text in `foreground`.
-- Links: `foreground` with an underline. Hover shifts to `accent`.
-- Text selection uses `accent` with a light tint.
+- Hover states change contrast, not hue. Muted text becomes `foreground`, and borders become `foreground` or a slightly stronger neutral.
+- Text selection uses a subtle neutral tint (for example `foreground` at 15% opacity).
 - Never use gradients, glows, or colored shadows.
 - Check contrast. Body text and muted text must meet WCAG AA on both themes.
 
@@ -74,7 +73,7 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 
 ## Components
 
-**Nav:** Name or wordmark on the left, links on the right (Home, Projects, About, Contact), theme toggle at the end. On mobile, collapse links into a menu toggle that opens a simple full-width panel. Toggle button is at least 44x44px. Sticky is fine if it stays slim.
+**Nav:** Height 64px on desktop, 56px on mobile. Name on the left, links on the right (Home, Projects, About, Contact), theme toggle at the end. Links have no underline at rest. They use `muted` color, shift to `foreground` on hover, and show a 1px underline on hover. The current page uses `foreground` color with a 1px underline. On mobile, collapse links into a menu toggle that opens a simple full-width panel. Toggle button is at least 44x44px (it can extend beyond the nav's visual height with padding). Sticky is fine if it stays slim.
 
 **Buttons:** Height 44px minimum, horizontal padding 20px, 8px radius, body font, medium weight. Visible focus ring using `foreground`.
 
@@ -87,6 +86,10 @@ Headings use slightly tight letter spacing (`-0.01em` to `-0.02em`). Mono labels
 **Form fields:** Full width, 44px minimum height, 1px `border`, 8px radius, `background` fill, visible label above each field (not placeholder only). Clear focus state and inline error text.
 
 **Icons:** Boxicons, 20px to 24px, inherit text color. Icon-only links must have an `aria-label`.
+
+**Inline links (inside paragraphs):** `foreground` color with an underline, and a small underline offset. Hover increases contrast only. Navigation, social icons, and buttons are not inline links and do not use this style.
+
+**Hero:** A small muted greeting line above the h1 (for example "Hi, I'm Rhundei"), in the body or mono font at 16px to 18px. The h1 holds only the main statement. On desktop, the text column and photo column are aligned to the top.
 
 ## Motion
 

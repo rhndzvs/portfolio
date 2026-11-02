@@ -64,6 +64,7 @@ public/
 - Content is currently placeholder. Mark placeholder values clearly (for example `"Project name (placeholder)"`) so they are easy to find and replace.
 - Never invent facts about the owner. Do not make up metrics, employers, tools, awards, or project details. If you need real content, use an obvious placeholder.
 - Screenshots are placeholders for now. Use a neutral empty box with the correct aspect ratio until real images are added to `public/images/`.
+- Use content exactly as I provide it. Do not rewrite, shorten, or remove any of my copy. If you think something should change, ask me first.
 
 ## Code conventions
 

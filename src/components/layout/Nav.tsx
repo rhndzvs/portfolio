@@ -2,6 +2,7 @@
 
 import { Menu, X } from "@boxicons/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import Container from "@/components/ui/Container";
@@ -16,17 +17,18 @@ const links = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="border-b border-border">
       <Container>
         <nav
-          className="flex min-h-20 items-center justify-between gap-4"
+          className="flex min-h-14 items-center justify-between gap-4 md:min-h-16"
           aria-label="Main navigation"
         >
           <Link
             href="/"
-            className="font-heading text-xl text-foreground hover:text-accent"
+            className="font-heading text-xl text-foreground hover:text-foreground"
             onClick={() => setIsOpen(false)}
           >
             {profile.name}
@@ -37,7 +39,11 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground underline decoration-border underline-offset-4 hover:text-accent"
+                className={`flex min-h-11 items-center hover:text-foreground hover:underline hover:underline-offset-4 ${
+                  pathname === link.href
+                    ? "text-foreground underline underline-offset-4"
+                    : "text-muted"
+                }`}
               >
                 {link.label}
               </Link>
@@ -49,7 +55,7 @@ export default function Nav() {
             <ThemeToggle />
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:text-accent"
+              className="flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:text-foreground"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
@@ -71,7 +77,11 @@ export default function Nav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="py-3 text-foreground underline decoration-border underline-offset-4 hover:text-accent"
+                  className={`flex min-h-11 items-center hover:text-foreground hover:underline hover:underline-offset-4 ${
+                    pathname === link.href
+                      ? "text-foreground underline underline-offset-4"
+                      : "text-muted"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

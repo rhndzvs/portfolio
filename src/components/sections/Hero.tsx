@@ -21,11 +21,14 @@ export default function Hero() {
   return (
     <section className="py-16 md:py-24" aria-labelledby="hero-heading">
       <Reveal>
-        <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] md:gap-16">
+        <div className="grid items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] md:gap-16">
           <div className="order-2 max-w-2xl md:order-1">
+            <p className="text-base leading-[1.6] text-muted md:text-lg">
+              {profile.greeting}
+            </p>
             <h1
               id="hero-heading"
-              className="text-[40px] leading-[1.1] md:text-[64px]"
+              className="mt-2 text-[40px] leading-[1.1] md:mt-3 md:text-[64px]"
             >
               {profile.heroHeading}
             </h1>
@@ -40,7 +43,7 @@ export default function Hero() {
                   <a
                     key={social.kind}
                     href={social.href}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground hover:border-accent hover:text-accent"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground hover:border-foreground hover:text-foreground"
                     aria-label={social.label}
                     target={isEmail ? undefined : "_blank"}
                     rel={isEmail ? undefined : "noopener noreferrer"}

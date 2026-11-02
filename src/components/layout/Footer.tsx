@@ -34,7 +34,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-11 items-center gap-2 text-foreground hover:text-accent"
+                className="flex min-h-11 items-center gap-2 text-foreground hover:text-foreground"
                 aria-label={social.label}
               >
                 <SocialIcon kind={social.kind} />
@@ -43,7 +43,7 @@ export default function Footer() {
               ))}
             <a
               href={`mailto:${profile.email}`}
-              className="flex min-h-11 items-center text-foreground hover:text-accent"
+              className="flex min-h-11 items-center text-foreground hover:text-foreground"
             >
               {profile.email}
             </a>
