@@ -11,6 +11,7 @@
   --type-body: 16px;
   --type-nav: 15px;
   --type-label: 12px;
+  --type-footer: 14px;
   --leading-hero: 1.1;
   --leading-section: 1.2;
   --leading-project: 1.25;
@@ -18,6 +19,7 @@
   --leading-body: 1.6;
   --leading-nav: 1.4;
   --leading-label: 1.4;
+  --leading-footer: 1.5;
   --background: #f7f6f3;
   --foreground: #171717;
   --muted: #6b6b66;
@@ -65,6 +67,8 @@
   --text-nav--line-height: var(--leading-nav);
   --text-label: var(--type-label);
   --text-label--line-height: var(--leading-label);
+  --text-footer: var(--type-footer);
+  --text-footer--line-height: var(--leading-footer);
 }
 
 * {

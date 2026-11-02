@@ -51,6 +51,7 @@ Type scale (mobile / desktop):
 | Body | 16px | 16px | 1.6 |
 | Nav links and buttons | 15px | 15px | 1.4 |
 | Small label (mono) | 12px | 13px | 1.4 |
+| Footer text | 14px | 14px | 1.5 |
 
 Form inputs are always at least 16px so mobile browsers do not zoom in on focus.
 Define these as tokens in globals.css (@theme) and use the tokens in components. Do not hardcode font sizes in components.
@@ -98,6 +99,8 @@ Define these as tokens in globals.css (@theme) and use the tokens in components.
 **Circular icon buttons (socials):** 44px circle, 1px `border`. On hover, fill with `foreground` and change the icon to `background` (inverted), 150ms. Visible focus ring.
 
 **Theme toggle:** 44px touch target, no border at rest. On hover, show a circular fill of `foreground` at about 8% opacity. Visible focus ring.
+
+**Footer:** Quiet and compact. Vertical padding 24px on desktop and 32px on mobile. Single row on desktop: copyright on the left, text links on the right (Facebook, LinkedIn, GitHub, email). On mobile, stack the links above the copyright and let them wrap. All text is 14px. Links are `muted` at rest and `foreground` on hover, with no underline at rest and no icons. 1px top border. Links keep a 44px minimum touch target on mobile through padding, without making the footer taller visually.
 
 ## Motion
 
