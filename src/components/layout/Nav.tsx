@@ -40,10 +40,21 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 className={`flex min-h-11 items-center text-nav hover:text-foreground hover:underline hover:underline-offset-4 ${
-                  pathname === link.href
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname === link.href || pathname.startsWith(`${link.href}/`)
                     ? "text-foreground underline underline-offset-4"
                     : "text-muted"
                 }`}
+                aria-current={
+                  link.href === "/"
+                    ? pathname === "/"
+                      ? "page"
+                      : undefined
+                    : pathname === link.href || pathname.startsWith(`${link.href}/`)
+                      ? "page"
+                      : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -84,10 +95,21 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   className={`flex min-h-11 items-center text-nav hover:text-foreground hover:underline hover:underline-offset-4 ${
-                    pathname === link.href
+                    link.href === "/"
+                      ? pathname === "/"
+                      : pathname === link.href || pathname.startsWith(`${link.href}/`)
                       ? "text-foreground underline underline-offset-4"
                       : "text-muted"
                   }`}
+                  aria-current={
+                    link.href === "/"
+                      ? pathname === "/"
+                        ? "page"
+                        : undefined
+                      : pathname === link.href || pathname.startsWith(`${link.href}/`)
+                        ? "page"
+                        : undefined
+                  }
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

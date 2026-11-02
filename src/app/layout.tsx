@@ -24,11 +24,32 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "http://localhost:3000"),
+  ),
   title: {
     default: `${profile.name} – ${profile.professionalTitle}`,
-    template: `%s – ${profile.name}`,
+    template: `%s - ${profile.name}`,
   },
   description: profile.metadataDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: profile.name,
+    locale: "en_PH",
+    title: profile.name,
+    description: profile.metadataDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: profile.name,
+    description: profile.metadataDescription,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -42,7 +63,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Nav />
-            <main className="page-main flex-1">
+            <a
+              href="#main"
+              className="absolute left-5 top-2 z-[60] -translate-y-16 rounded-md bg-foreground px-4 py-2 text-nav text-background focus-visible:translate-y-0 focus-visible:outline-2 focus-visible:outline-foreground focus-visible:outline-offset-2 md:left-8"
+            >
+              Skip to content
+            </a>
+            <main id="main" className="page-main flex-1">
               <Container>{children}</Container>
             </main>
             <Footer />

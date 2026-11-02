@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rhundei Zen Ballesteros Portfolio
 
-## Getting Started
+A personal portfolio website for Rhundei Zen Ballesteros.
 
-First, run the development server:
+## Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- motion
+- next-themes
+- Boxicons
+- Resend
+- Vercel
+
+## Run locally
 
 ```bash
+npm install
+copy .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in a browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `NEXT_PUBLIC_SITE_URL`: Public site URL used for metadata, sitemap, and robots.
+- `RESEND_API_KEY`: Resend API key used to send contact form emails.
+- `CONTACT_TO_EMAIL`: Destination email address for contact form messages.
+- `CONTACT_FROM_EMAIL`: Verified sender email address used by Resend.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/`: App Router pages, metadata, generated images, sitemap, robots, and the contact route.
+- `src/components/`: Layout, page sections, project, contact, and UI components.
+- `src/content/`: Site content data.
+- `public/`: Static files and images.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All site content lives in `src/content/`.
