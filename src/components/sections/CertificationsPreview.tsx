@@ -18,6 +18,7 @@ function CertificationRow({ entry }: { entry: Certification }) {
             {entry.credentialUrl && (
               <a
                 href={entry.credentialUrl}
+                aria-label={`View credential for ${entry.title}`}
                 className="inline-flex min-h-11 items-center gap-2 self-start text-nav text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 target="_blank"
                 rel="noopener noreferrer"
