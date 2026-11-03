@@ -1,7 +1,7 @@
 import { Facebook, Github, Linkedin } from "@boxicons/react";
 import { profile } from "@/content/profile";
 import { socials, type SocialKind } from "@/content/socials";
-import PhotoPlaceholder from "@/components/sections/PhotoPlaceholder";
+import ProfilePhoto from "@/components/sections/ProfilePhoto";
 import Reveal from "@/components/ui/Reveal";
 
 function SocialIcon({ kind }: { kind: SocialKind }) {
@@ -53,7 +53,11 @@ export default function Hero() {
           </div>
 
           <div className="order-1 flex justify-start md:order-2 md:justify-end">
-            <PhotoPlaceholder />
+            <ProfilePhoto
+              photo={profile.photos.hero}
+              sizes="(max-width: 767px) 180px, 400px"
+              preload
+            />
           </div>
         </div>
       </Reveal>

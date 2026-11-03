@@ -1,3 +1,9 @@
+export type ProfilePhoto = {
+  src: string;
+  alt: string;
+  objectPosition: string;
+};
+
 export type Profile = {
   name: string;
   professionalTitle: string;
@@ -7,6 +13,10 @@ export type Profile = {
   heroDescription: string;
   metadataDescription: string;
   photoPlaceholder: string;
+  photos: {
+    hero: ProfilePhoto;
+    about: ProfilePhoto;
+  };
   email: string;
   pageTitles: {
     home: string;
@@ -27,6 +37,18 @@ export const profile: Profile = {
   metadataDescription:
     "Software and AI projects by Rhundei Zen Ballesteros, a 4th-year IT student at Asia Pacific College.",
   photoPlaceholder: "Photo placeholder",
+  photos: {
+    hero: {
+      src: "/images/profile/hero.jpg",
+      alt: "Portrait of Rhundei Zen Ballesteros in a black suit and tie",
+      objectPosition: "center",
+    },
+    about: {
+      src: "/images/profile/about.jpg",
+      alt: "Rhundei sitting on a rock with his back to the camera, looking out over a pine forest and hills",
+      objectPosition: "center 70%",
+    },
+  },
   email: "rhundeizenballesteros@gmail.com",
   pageTitles: {
     home: "Home placeholder",

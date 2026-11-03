@@ -1,9 +1,10 @@
 import { ArrowRight } from "@boxicons/react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import PhotoPlaceholder from "@/components/sections/PhotoPlaceholder";
+import ProfilePhoto from "@/components/sections/ProfilePhoto";
 import Reveal from "@/components/ui/Reveal";
 import { about } from "@/content/about";
+import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
   title: "About",
@@ -100,7 +101,10 @@ export default function AboutPage() {
         </div>
 
         <div className="order-first flex w-[160px] justify-start md:order-none md:sticky md:top-24 md:h-fit md:w-[300px] md:justify-end">
-          <PhotoPlaceholder />
+          <ProfilePhoto
+            photo={profile.photos.about}
+            sizes="(max-width: 767px) 160px, 320px"
+          />
         </div>
       </div>
     </section>
