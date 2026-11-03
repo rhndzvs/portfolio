@@ -86,7 +86,7 @@ Form inputs are at least 16px on mobile so phone browsers do not zoom in on focu
 
 **Project entry:** Screenshot (fixed aspect ratio, 1px border, 8px radius), title (serif), short description, key features, role, tech stack tags, links to live site and code. Links are text links with icons, not big buttons.
 
-**Experience entry:** Role and company on one line, date range in mono, short bullet list of what was done.
+**Experience entry:** Two columns on desktop. The left column holds the date range (for example "Oct 2026 - Present") and, below it, the location and work setup (for example "Markham, Ontario, Canada · Remote"), both in the mono label style and `muted`. The right column holds the role as an h3, the company and employment type on one muted line, and a short bullet list. On mobile, stack in this order: dates, location line, role, company line, bullets. Do not show a duration (such as "2 mos"), since it goes stale.
 
 **Form fields:** Visible label above each field (not placeholder only), `background` fill, 1px `border`, 8px radius, clear focus state, and inline error text. Inputs are 40px tall on desktop and 44px on mobile. Text is 15px on desktop and 16px on mobile (never below 16px on mobile, so phones do not zoom in on focus). The form column is at most 560px wide. The message textarea is 5 rows, has a fixed height, and cannot be resized by the user. Long messages scroll inside it. Gaps between fields are 20px.
 

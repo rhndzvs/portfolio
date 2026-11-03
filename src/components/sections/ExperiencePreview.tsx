@@ -7,13 +7,16 @@ function formatDateRange(startDate: string, endDate: string | null) {
 }
 
 function ExperienceRow({ entry }: { entry: Experience }) {
+  const place = [entry.location, entry.workSetup].filter(Boolean).join(" · ");
+
   return (
     <li className="border-b border-border last:border-b-0">
       <Reveal mode="in-view">
         <div className="grid gap-6 py-8 md:grid-cols-[30%_minmax(0,1fr)] md:gap-12 md:py-12">
-          <p className="font-mono text-label text-muted">
-            {formatDateRange(entry.startDate, entry.endDate)}
-          </p>
+          <div className="font-mono text-label text-muted">
+            <p>{formatDateRange(entry.startDate, entry.endDate)}</p>
+            {place ? <p className="mt-2">{place}</p> : null}
+          </div>
 
           <div>
             <h3 className="text-project">{entry.role}</h3>

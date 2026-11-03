@@ -6,6 +6,8 @@ export type Experience = {
   type: string;
   startDate: string;
   endDate: string | null;
+  location?: string;
+  workSetup?: string;
   bullets: string[];
 };
 
@@ -15,8 +17,10 @@ export const experience: Experience[] = [
     role: "AI Engineer Intern",
     company: "AR Data Intelligence Solutions Inc.",
     type: "Internship",
-    startDate: "Start date (placeholder)",
+    startDate: "Oct 2026",
     endDate: null,
+    location: "Markham, Ontario, Canada",
+    workSetup: "Remote",
     bullets: [
       "What I worked on (placeholder).",
       "What I worked on (placeholder).",
