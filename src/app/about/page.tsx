@@ -101,10 +101,14 @@ export default function AboutPage() {
         </div>
 
         <div className="order-first flex w-[160px] justify-start md:order-none md:sticky md:top-24 md:h-fit md:w-[300px] md:justify-end">
-          <ProfilePhoto
-            photo={profile.photos.about}
-            sizes="(max-width: 767px) 160px, 320px"
-          />
+          <div className="w-full">
+            <Reveal mode="in-view">
+              <ProfilePhoto
+                photo={profile.photos.about}
+                sizes="(max-width: 767px) 160px, 320px"
+              />
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
