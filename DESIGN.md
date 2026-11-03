@@ -84,7 +84,7 @@ Form inputs are at least 16px on mobile so phone browsers do not zoom in on focu
 
 **Tags (tech stack):** Mono font, 13px, 1px `border`, 6px to 8px radius, small padding. No colored fills.
 
-**Project entry:** Screenshot (fixed aspect ratio, 1px border, 8px radius), title (serif), short description, key features, role, tech stack tags, links to live site and code. Links are text links with icons, not big buttons.
+**Project entry:** The screenshot is optional. When a project has no screenshot, render no image box and no placeholder. In rows, the layout then mirrors the Experience rows: the number and period in the left column (mono label style, `muted`), and the right column holds the title (h3), the client on one muted line, the summary, the tech stack tags, and any links. When a screenshot exists, the current layout with the image is used. Links are text links with icons, not big buttons, and only appear when a URL exists.
 
 **Experience entry:** Two columns on desktop. The left column holds the date range (for example "Oct 2026 - Present") and, below it, the location and work setup (for example "Markham, Ontario, Canada · Remote"), both in the mono label style and `muted`. The right column holds the role as an h3, the company and employment type on one muted line, and a short bullet list. On mobile, stack in this order: dates, location line, role, company line, bullets. Do not show a duration (such as "2 mos"), since it goes stale.
 

@@ -51,13 +51,56 @@ export default function ProjectRow({
   project: Project;
   index: number;
 }) {
+  const projectNumber = String(index + 1).padStart(2, "0");
+
+  if (!project.image) {
+    return (
+      <li className="border-b border-border last:border-b-0">
+        <Reveal mode="in-view">
+          <div className="grid gap-6 py-8 md:grid-cols-[30%_minmax(0,1fr)] md:gap-12 md:py-12">
+            <div className="font-mono text-label text-muted">
+              <p>{projectNumber}</p>
+              {project.period ? <p className="mt-2">{project.period}</p> : null}
+            </div>
+
+            <div className="flex flex-col items-start">
+              <Link
+                href={`/projects/${project.slug}`}
+                className="rounded-sm hover:text-muted focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <h3 className="text-project">{project.title}</h3>
+              </Link>
+              {project.client ? (
+                <p className="mt-2 text-body text-muted">{project.client}</p>
+              ) : null}
+              <p className="mt-4 max-w-xl text-body text-muted">
+                {project.summary}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {project.stack.map((technology) => (
+                  <span
+                    key={technology}
+                    className="rounded-md border border-border px-2 py-1 font-mono text-label text-muted"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+              <ProjectLinks project={project} />
+            </div>
+          </div>
+        </Reveal>
+      </li>
+    );
+  }
+
   return (
     <li className="border-b border-border last:border-b-0">
       <Reveal mode="in-view">
         <div className="grid gap-6 py-8 md:grid-cols-[45%_minmax(0,1fr)] md:gap-12 md:py-12">
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
             <span className="order-2 font-mono text-label text-muted md:order-1">
-              {String(index + 1).padStart(2, "0")}
+              {projectNumber}
             </span>
             <div className="order-1 md:order-2">
               <ProjectImage image={project.image} />

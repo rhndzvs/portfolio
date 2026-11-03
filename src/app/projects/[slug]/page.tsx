@@ -127,7 +127,7 @@ export default async function ProjectPage({ params }: Props) {
                     ))
                   ) : (
                     <span className="text-body text-muted">
-                      Links coming soon
+                      Source code is private.
                     </span>
                   )}
                 </dd>
@@ -136,14 +136,16 @@ export default async function ProjectPage({ params }: Props) {
           </section>
         </Reveal>
 
-        <Reveal mode="in-view">
-          <section className="mt-12" aria-labelledby="project-image-heading">
-            <h2 id="project-image-heading" className="sr-only">
-              Project screenshot
-            </h2>
-            <ProjectImage image={project.image} />
-          </section>
-        </Reveal>
+        {project.image ? (
+          <Reveal mode="in-view">
+            <section className="mt-12" aria-labelledby="project-image-heading">
+              <h2 id="project-image-heading" className="sr-only">
+                Project screenshot
+              </h2>
+              <ProjectImage image={project.image} />
+            </section>
+          </Reveal>
+        ) : null}
 
         {project.overview && project.overview.length > 0 ? (
           <Reveal mode="in-view">

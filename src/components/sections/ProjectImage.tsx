@@ -7,13 +7,7 @@ type Props = {
 
 export default function ProjectImage({ image }: Props) {
   if (!image) {
-    return (
-      <div className="flex aspect-[16/10] items-center justify-center rounded-lg border border-border">
-        <span className="font-mono text-label text-muted">
-          Screenshot placeholder
-        </span>
-      </div>
-    );
+    return null;
   }
 
   return (
