@@ -19,7 +19,7 @@ const initialValues: FormValues = {
 };
 
 const inputClassName =
-  "min-h-11 w-full rounded-lg border border-border bg-background px-3 py-2 text-body text-foreground focus-visible:border-foreground focus-visible:outline-2 focus-visible:outline-foreground focus-visible:outline-offset-2";
+  "w-full rounded-lg border border-border bg-background px-3 py-2 text-body text-foreground focus-visible:border-foreground focus-visible:outline-2 focus-visible:outline-foreground focus-visible:outline-offset-2 md:text-nav";
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {};
@@ -109,7 +109,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+    <form className="space-y-5" onSubmit={handleSubmit} noValidate>
       <div
         aria-hidden="true"
         className="absolute -left-[9999px] h-px w-px overflow-hidden"
@@ -157,7 +157,7 @@ export default function ContactForm() {
       />
       <div>
         <div className="flex items-baseline justify-between gap-4">
-          <label htmlFor="message" className="font-mono text-label text-foreground">
+          <label htmlFor="message" className="block font-mono text-label text-foreground">
             Message
           </label>
           <span className="font-mono text-label text-muted" aria-live="polite">
@@ -169,11 +169,11 @@ export default function ContactForm() {
           name="message"
           required
           maxLength={5000}
-          rows={6}
+          rows={5}
           value={values.message}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className={`${inputClassName} mt-2 resize-y`}
+          className={`${inputClassName} mt-2 h-40 resize-none md:h-36`}
           onChange={(event) => updateField("message", event.target.value)}
         />
         {errors.message ? (
@@ -197,7 +197,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSending}
-        className="min-h-11 w-full rounded-lg bg-foreground px-5 py-2 text-nav font-medium text-background hover:bg-muted disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
+        className="min-h-11 w-full rounded-lg bg-foreground px-5 py-2 text-nav font-medium text-background hover:bg-muted disabled:cursor-not-allowed disabled:opacity-60 md:min-h-10 md:w-auto"
       >
         {isSending ? "Sending..." : "Send message"}
       </button>
@@ -230,7 +230,7 @@ function Field({
 
   return (
     <div>
-      <label htmlFor={id} className="font-mono text-label text-foreground">
+      <label htmlFor={id} className="block font-mono text-label text-foreground">
         {label}
       </label>
       <input
@@ -243,7 +243,7 @@ function Field({
         value={value}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
-        className={`${inputClassName} mt-2`}
+        className={`${inputClassName} mt-2 h-11 md:h-10`}
         onChange={(event) => onChange(event.target.value)}
       />
       {error ? (

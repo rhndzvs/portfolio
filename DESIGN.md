@@ -54,8 +54,7 @@ Type scale (mobile / desktop):
 | Small label (mono) | 12px | 13px | 1.4 |
 | Footer text | 14px | 14px | 1.5 |
 
-Form inputs are always at least 16px so mobile browsers do not zoom in on focus.
-Define these as tokens in globals.css (@theme) and use the tokens in components. Do not hardcode font sizes in components.
+Form inputs are at least 16px on mobile so phone browsers do not zoom in on focus.
 
 ## Spacing
 
@@ -89,7 +88,7 @@ Define these as tokens in globals.css (@theme) and use the tokens in components.
 
 **Experience entry:** Role and company on one line, date range in mono, short bullet list of what was done.
 
-**Form fields:** Full width, 44px minimum height, 1px `border`, 8px radius, `background` fill, visible label above each field (not placeholder only). Clear focus state and inline error text.
+**Form fields:** Visible label above each field (not placeholder only), `background` fill, 1px `border`, 8px radius, clear focus state, and inline error text. Inputs are 40px tall on desktop and 44px on mobile. Text is 15px on desktop and 16px on mobile (never below 16px on mobile, so phones do not zoom in on focus). The form column is at most 560px wide. The message textarea is 5 rows, has a fixed height, and cannot be resized by the user. Long messages scroll inside it. Gaps between fields are 20px.
 
 **Icons:** Boxicons, 20px to 24px, inherit text color. Icon-only links must have an `aria-label`.
 
