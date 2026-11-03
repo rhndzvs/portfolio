@@ -76,6 +76,9 @@ export default function AboutPage() {
                     <p className="mt-4 font-mono text-label text-muted">
                       {entry.period} · {entry.status}
                     </p>
+                    {entry.honors ? (
+                      <p className="mt-2 text-body text-muted">{entry.honors}</p>
+                    ) : null}
                   </li>
                 ))}
               </ul>
