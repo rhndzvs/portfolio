@@ -11,20 +11,20 @@ export const certifications: Certification[] = [
     title: "AI Fundamentals",
     issuer: "DataCamp",
     credentialUrl:
-      "https://media.licdn.com/dms/image/v2/D562DAQHzbxzjr8G5_w/profile-treasury-document-images_1280/B56Z5a6rg7JEAg-/1/1779641793691?e=1794441600&v=beta&t=w7n9lfMKUnunsRrvrrxy0nbPm3nvtVE5B0GPSqBHwIA",
+      "https://www.datacamp.com/skill-verification/AIF0027898536194",
   },
   {
     id: "comptia-a-plus",
     title: "CompTIA A+",
     issuer: "CompTIA",
     credentialUrl:
-      "https://media.licdn.com/dms/image/v2/D562DAQFiojQzFoPcPQ/profile-treasury-image-shrink_1280_1280/B56aGFwT6YK0AY-/0/1793245396930?e=1794294000&v=beta&t=-NP3MQ1coRGgGWpzNi_SJdShj7jgLbxHTlrBQUDQwq8",
+      "https://www.credly.com/earner/earned/badge/c9b382f9-8fb0-4950-9eb4-670ea3e28004",
   },
   {
     id: "github-foundations",
     title: "GitHub Foundations",
     issuer: "DataCamp",
     credentialUrl:
-      "https://media.licdn.com/dms/image/v2/D562DAQHgQQAyWnwJIQ/profile-treasury-document-cover-images_1920/B56Z0U_.DoKYBM-/0/1774173808823?e=1794294000&v=beta&t=j8W-tAqPXE95VDjcXS27NlRZudCfecQyXvLPd7A4EZY",
+      "https://www.datacamp.com/completed/statement-of-accomplishment/track/8a7823c990550ccb5d566855a57ec3c59d3ba38d",
   },
 ];

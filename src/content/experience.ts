@@ -8,7 +8,7 @@ export type Experience = {
   endDate: string | null;
   location?: string;
   workSetup?: string;
-  bullets: string[];
+  bullets?: string[];
 };
 
 export const experience: Experience[] = [
@@ -21,10 +21,5 @@ export const experience: Experience[] = [
     endDate: null,
     location: "Markham, Ontario, Canada",
     workSetup: "Remote",
-    bullets: [
-      "What I worked on (placeholder).",
-      "What I worked on (placeholder).",
-      "What I worked on (placeholder).",
-    ],
   },
 ];

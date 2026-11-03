@@ -7,7 +7,9 @@ function formatDateRange(startDate: string, endDate: string | null) {
 }
 
 function ExperienceRow({ entry }: { entry: Experience }) {
-  const place = [entry.location, entry.workSetup].filter(Boolean).join(" · ");
+  // The no-break space keeps the separator with the part that follows it when wrapping.
+  const place = [entry.location, entry.workSetup].filter(Boolean).join(" ·\u00A0");
+  const bullets = entry.bullets ?? [];
 
   return (
     <li className="border-b border-border last:border-b-0">
@@ -33,11 +35,13 @@ function ExperienceRow({ entry }: { entry: Experience }) {
               )}{" "}
               <span aria-hidden="true">·</span> {entry.type}
             </p>
-            <ul className="mt-4 max-w-prose list-disc space-y-2 pl-5 text-body marker:text-muted">
-              {entry.bullets.map((bullet, index) => (
-                <li key={`${bullet}-${index}`}>{bullet}</li>
-              ))}
-            </ul>
+            {bullets.length > 0 ? (
+              <ul className="mt-4 max-w-prose list-disc space-y-2 pl-5 text-body marker:text-muted">
+                {bullets.map((bullet, index) => (
+                  <li key={`${bullet}-${index}`}>{bullet}</li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </div>
       </Reveal>
