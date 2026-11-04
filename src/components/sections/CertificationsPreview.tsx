@@ -6,8 +6,8 @@ function CertificationRow({ entry }: { entry: Certification }) {
   return (
     <li className="border-b border-border last:border-b-0">
       <Reveal mode="in-view">
-        <div className="flex flex-col gap-2 py-5 md:flex-row md:items-center md:justify-between md:gap-6 md:py-6">
-          <div>
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-5 md:py-6">
+          <div className="min-w-min flex-1">
             <h3 className="text-project">{entry.title}</h3>
             <p className="mt-2 text-body text-muted">{entry.issuer}</p>
           </div>
@@ -16,7 +16,7 @@ function CertificationRow({ entry }: { entry: Certification }) {
             <a
               href={entry.credentialUrl}
               aria-label={`View credential for ${entry.title}`}
-              className="inline-flex min-h-11 items-center gap-2 self-start text-nav text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background md:self-center"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap text-nav text-muted underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               target="_blank"
               rel="noopener noreferrer"
             >
