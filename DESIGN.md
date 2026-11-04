@@ -94,7 +94,7 @@ Form inputs are at least 16px on mobile so phone browsers do not zoom in on focu
 
 **Inline links (inside paragraphs):** `foreground` color with an underline, and a small underline offset. Hover increases contrast only. Navigation, social icons, and buttons are not inline links and do not use this style.
 
-**Hero:** A greeting line above the h1 (for example "Hi, I'm Rhundei"), in Newsreader italic, `foreground` color, 20px to 22px. The h1 holds only the main statement. On desktop, text and photo columns are vertically centered with each other. The hero fills the screen (see Layout).
+**Hero:** A greeting line above the h1 (for example "Hi, I'm Rhundei"), in Newsreader italic, `foreground` color, 20px to 22px. The h1 holds only the main statement. On desktop, text and photo columns are vertically centered with each other. The hero fills the screen (see Layout). On mobile, the profile photo is centered horizontally above the text (hero and About page). All text stays left-aligned. On desktop, the photo stays in its column as before.
 
 **Circular icon buttons (socials):** 44px circle, 1px `border`. On hover, fill with `foreground` and change the icon to `background` (inverted), 150ms. Visible focus ring.
 

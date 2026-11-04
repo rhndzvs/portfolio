@@ -100,7 +100,7 @@ export default function AboutPage() {
           </Reveal>
         </div>
 
-        <div className="order-first flex w-[160px] justify-start md:order-none md:sticky md:top-24 md:h-fit md:w-[300px] md:justify-end">
+        <div className="order-first mx-auto flex w-[160px] justify-start md:order-none md:sticky md:top-24 md:mx-0 md:h-fit md:w-[300px] md:justify-end">
           <div className="w-full">
             <Reveal mode="in-view">
               <ProfilePhoto

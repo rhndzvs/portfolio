@@ -52,7 +52,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="order-1 flex justify-start md:order-2 md:justify-end">
+          <div className="order-1 flex justify-center md:order-2 md:justify-end">
             <ProfilePhoto
               photo={profile.photos.hero}
               sizes="(max-width: 767px) 180px, 400px"
