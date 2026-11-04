@@ -100,6 +100,8 @@ Form inputs are at least 16px on mobile so phone browsers do not zoom in on focu
 
 **Theme toggle:** 44px touch target, no border at rest. On hover, show a circular fill of `foreground` at about 8% opacity. Visible focus ring.
 
+**Section heading with a link:** The heading and the link sit on one row at every width, with the link right-aligned and vertically aligned to the heading's baseline. The link stays on one line. It only drops below the heading if the row cannot fit it (very narrow screens).
+
 **Footer:** Quiet and compact. Vertical padding 24px on desktop and 32px on mobile. Single row on desktop: copyright on the left, text links on the right (Facebook, LinkedIn, GitHub). No email and no icons. On mobile, the three links sit on one row, with the copyright below. All text is 14px. Links are `muted` at rest and `foreground` on hover, with no underline at rest. 1px top border. Links keep a 44px minimum touch target on mobile through padding, without making the footer taller visually.
 
 ## Motion
