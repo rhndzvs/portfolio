@@ -102,7 +102,7 @@ Form inputs are at least 16px on mobile so phone browsers do not zoom in on focu
 
 **Section heading with a link:** The heading and the link sit on one row at every width, with the link right-aligned and vertically aligned to the heading's baseline. The link stays on one line. It only drops below the heading if the row cannot fit it (very narrow screens).
 
-**List row with a trailing link (certifications):** The text block (title and issuer) sits on the left and the link sits on the right, vertically centered with the text block, at every width. The link stays on one line. It only drops below the text if the row cannot fit both (very narrow screens).
+**List row with a trailing link (certifications):** The text block (title and issuer) sits on the left and the link sits on the right at every width. The link is aligned to the first line of the title (baseline alignment), not centered on the whole block, so it stays in the same place when a title wraps. The link stays on one line. It only drops below the text if the row cannot fit both (very narrow screens).
 
 **Footer:** Quiet and compact. Vertical padding 24px on desktop and 32px on mobile. Single row on desktop: copyright on the left, text links on the right (Facebook, LinkedIn, GitHub). No email and no icons. On mobile, the three links sit on one row, with the copyright below. All text is 14px. Links are `muted` at rest and `foreground` on hover, with no underline at rest. 1px top border. Links keep a 44px minimum touch target on mobile through padding, without making the footer taller visually.
 
